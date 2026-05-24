@@ -1,4 +1,4 @@
-# rake
+# Rake
 
 An AI-powered tool that scans Google Maps for local businesses without websites and automatically generates modern, responsive websites + pitches for each one.
 
