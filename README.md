@@ -47,8 +47,8 @@ An AI-powered tool that scans Google Maps for local businesses without websites 
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd rake-v2
+git clone https://github.com/kavinr24/rake
+cd rake
 
 # Install dependencies
 npm install
