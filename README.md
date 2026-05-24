@@ -4,11 +4,11 @@ An AI-powered tool that scans Google Maps for local businesses without websites 
 
 ## How It Works
 
-1. **Search** -- Enter a location, keyword, and place type. Rake queries the Google Maps Places API to find businesses matching your criteria.
-2. **Filter** -- Each result is checked for an existing website. Only businesses without one are kept.
-3. **Generate** -- An LLM (large language model) creates a complete website -- HTML and CSS -- tailored to each business using its name, address, phone, and category data.
-4. **Export** -- The generated website is saved to disk as a ready-to-deploy folder. Programmatic hero images and decorative assets are created automatically using Sharp.
-5. **Review** -- From the dashboard, you can preview each website live in-browser, download it as a zip, and copy a cold-outreach pitch to send to the business owner.
+1. **Search** - Enter a location, keyword, and place type. Rake queries the Google Maps Places API to find businesses matching your criteria.
+2. **Filter** - Each result is checked for an existing website. Only businesses without one are kept.
+3. **Generate** - An LLM (large language model) creates a complete website - HTML and CSS - tailored to each business using its name, address, phone, and category data.
+4. **Export** - The generated website is saved to disk as a ready-to-deploy folder. Programmatic hero images and decorative assets are created automatically using Sharp.
+5. **Review** - From the dashboard, you can preview each website live in-browser, download it as a zip, and copy a cold-outreach pitch to send to the business owner.
 
 ## Tech Stack
 
@@ -57,12 +57,12 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` and set your API keys and preferred port:
+Edit `.env` and set your maps API key and preferred port:
 
 ```env
 PORT=3000
 GOOGLE_MAPS_API_KEY=your_google_maps_api_key
-BLACKBOX_API_KEY=your_blackbox_api_key
+BLACKBOX_API_KEY=BLACKBOX_API_KEY
 OUTPUT_DIR=output
 ```
 
