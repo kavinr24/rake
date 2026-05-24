@@ -1,0 +1,25 @@
+{
+  "name": "rake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.16.1",
+    "canvas": "^3.2.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "fabric": "^7.4.0",
+    "fs-extra": "^11.3.5",
+    "jsdom": "^29.1.1",
+    "sharp": "^0.34.5",
+    "slugify": "^1.6.9"
+  }
+}

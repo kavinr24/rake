@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café LaTTea | Premium Coffee in Cupertino</title>
+    <meta name="description" content="Café LaTTea - Your neighborhood coffee destination in Cupertino, CA. Artisan coffees, fresh pastries, and a cozy atmosphere.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="nav__logo">Café LaTTea</a>
+            <ul class="nav__menu">
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#menu" class="nav__link">Menu</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__background"></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1 class="hero__title">Café LaTTea</h1>
+                <p class="hero__subtitle">Artisan Coffee &amp; Community</p>
+                <p class="hero__tagline">Where every cup tells a story</p>
+            </div>
+            <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
+                <span class="hero__scroll-text">Explore</span>
+                <svg class="hero__scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
+        </section>
+
+        <img src="images/divider-top.png" alt="" class="divider" role="presentation">
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about__content">
+                        <h2 class="section-title">Our Story</h2>
+                        <p class="about__text">Founded with a passion for exceptional coffee, Café LaTTea has been serving the Cupertino community since 2019. We believe in the art of slow coffee — carefully sourcing beans from sustainable farms around the world, roasting them to perfection, and crafting each drink with intention and care.</p>
+                        <p class="about__text">More than just a coffee shop, we're a gathering place for neighbors, a workspace for remote professionals, and a sanctuary for those seeking a moment of peace in their busy day.</p>
+                    </div>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number">7+</span>
+                            <span class="stat__label">Years Serving</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">50K+</span>
+                            <span class="stat__label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">15+</span>
+                            <span class="stat__label">Coffee Varietals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <img src="images/divider-bottom.png" alt="" class="divider" role="presentation">
+
+        <section id="menu" class="services">
+            <div class="container">
+                <h2 class="section-title section-title--center">Our Menu</h2>
+                <p class="section-subtitle">Crafted with care, served with love</p>
+                <div class="services__grid">
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 8h1.5a1.5 1.5 0 110 3h-1.5m0 0a1.5 1.5 0 010-3H15M3 8h14v9a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+                                <path d="M6 8v5h8V8"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Signature Lattes</h3>
+                        <p class="service-card__description">Our house-made espresso blends paired with perfectly steamed milk. Try our lavender honey latte or classic vanilla bean.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 8h1a2 2 0 012 2v9a2 2 0 01-2 2H3a2 2 0 01-2-2v-1m14-5V3a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2m8-10V3a2 2 0 00-2-2h-2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Artisan Pastries</h3>
+                        <p class="service-card__description">Freshly baked daily. From flaky croissants to savory quiches, all made locally with premium ingredients.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Cold Brew &amp; Nitro</h3>
+                        <p class="service-card__description">Smooth, slow-steeped cold brew crafted over 18 hours. Available plain or infused with nitrogen for a creamy finish.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 15s1-1 4-1 5 1 5 1 5-1 5-1 1 1 1 1H4m0 0v4"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Tea Selection</h3>
+                        <p class="service-card__description">Premium loose-leaf teas from around the world. From Japanese matcha to English breakfast, hot or iced.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Breakfast Menu</h3>
+                        <p class="service-card__description">Start your day right with avocado toast, breakfast burritos, acai bowls, and more. Served all day.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Community Events</h3>
+                        <p class="service-card__description">Join us for open mic nights, book clubs, coffee tasting workshops, and more. Check our calendar for upcoming events.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <img src="images/divider-top.png" alt="" class="divider" role="presentation">
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact__card">
+                    <h2 class="section-title">Visit Us</h2>
+                    <p class="contact__intro">We'd love to welcome you in person</p>
+                    <div class="contact__info">
+                        <div class="contact__item">
+                            <h3 class="contact__label">Address</h3>
+                            <address class="contact__detail">
+                                19501 Stevens Creek Blvd STE 101<br>
+                                Cupertino, CA 95014, USA
+                            </address>
+                        </div>
+                        <div class="contact__item">
+                            <h3 class="contact__label">Phone</h3>
+                            <a href="tel:+14082552393" class="contact__link">+1 408-255-2393</a>
+                        </div>
+                        <div class="contact__item">
+                            <h3 class="contact__label">Hours</h3>
+                            <p class="contact__detail">
+                                Mon - Fri: 6:00 AM - 8:00 PM<br>
+                                Sat - Sun: 7:00 AM - 9:00 PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">Café LaTTea</a>
+                    <p class="footer__tagline">Artisan coffee, local heart.</p>
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__heading">Navigate</h4>
+                    <ul class="footer__menu">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__heading">Connect</h4>
+                    <ul class="footer__menu">
+                        <li><a href="tel:+14082552393">+1 408-255-2393</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 Café LaTTea. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            const navToggle = document.querySelector('.nav__toggle');
+            const navMenu = document.querySelector('.nav__menu');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header--scrolled');
+                } else {
+                    header.classList.remove('header--scrolled');
+                }
+            });
+            
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('nav__menu--open');
+                navToggle.classList.toggle('nav__toggle--open');
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        navMenu.classList.remove('nav__menu--open');
+                        navToggle.classList.remove('nav__toggle--open');
+                    }
+                });
+            });
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-on-scroll--visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.service-card, .about__content, .contact__card').forEach(el => {
+                el.classList.add('animate-on-scroll');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

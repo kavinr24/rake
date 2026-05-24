@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rake AI | Precision Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        /* Custom scrollbar for technical aesthetic */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #3a494b; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f2ff; }
+        
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .digital-chrome-border {
+            border: 1px solid #3a494b;
+        }
+        .digital-chrome-border-active {
+            border: 1px solid #00f2ff;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#d0bcff",
+                      "on-tertiary-container": "#725e00",
+                      "primary-fixed": "#74f5ff",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "on-secondary": "#3c0091",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-primary": "#00363a",
+                      "surface-container-highest": "#353534",
+                      "tertiary-fixed-dim": "#e8c423",
+                      "background": "#131313",
+                      "inverse-surface": "#e5e2e1",
+                      "on-error": "#690005",
+                      "surface-bright": "#3a3939",
+                      "on-secondary-container": "#c4abff",
+                      "tertiary-container": "#fed83a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary": "#3b2f00",
+                      "on-primary-fixed-variant": "#004f54",
+                      "error-container": "#93000a",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-container": "#006a71",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary-fixed-variant": "#554500",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "primary-fixed-dim": "#00dbe7",
+                      "error": "#ffb4ab",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-fixed": "#002022",
+                      "surface-variant": "#353534",
+                      "tertiary": "#fff6e4",
+                      "primary": "#e1fdff",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#23005c",
+                      "surface": "#131313",
+                      "secondary-container": "#571bc1",
+                      "inverse-primary": "#00696f",
+                      "outline": "#849495",
+                      "secondary-fixed": "#e9ddff",
+                      "surface-container": "#201f1f",
+                      "tertiary-fixed": "#ffe173",
+                      "surface-dim": "#131313",
+                      "on-surface-variant": "#b9cacb",
+                      "outline-variant": "#3a494b",
+                      "surface-tint": "#00dbe7",
+                      "primary-container": "#00f2ff",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-max": "1440px",
+                      "unit": "4px",
+                      "margin": "24px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "display-lg": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "mono-code": ["Geist"],
+                      "headline-lg-mobile": ["Space Grotesk"],
+                      "label-sm": ["Geist"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "mono-code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-background border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center px-margin py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-headline-lg font-bold text-primary tracking-tighter">Rake</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-all active:scale-95" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 active:scale-95" href="#">Analytics</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 active:scale-95" href="#">Filters</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 active:scale-95" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="settings">settings</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-margin pt-8">
+<!-- Search Configuration Toolbar -->
+<section class="w-full mb-12">
+<div class="border border-outline-variant p-4 flex flex-wrap lg:flex-nowrap items-end gap-4 bg-surface-container-lowest">
+<div class="flex-1 min-w-[200px]">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Location</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors" placeholder="San Francisco, CA" type="text"/>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Keywords</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors" placeholder="Design, Tech, Quantum" type="text"/>
+</div>
+<div class="w-48">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Place Type</label>
+<select class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary appearance-none cursor-pointer">
+<option class="bg-background">Digital Agency</option>
+<option class="bg-background">SaaS HQ</option>
+<option class="bg-background">Research Hub</option>
+</select>
+</div>
+<div class="w-32">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Radius</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors text-center" placeholder="25km" type="text"/>
+</div>
+<div class="w-32">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Max Results</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors text-center" type="number" value="100"/>
+</div>
+<button class="bg-primary-container text-on-primary-fixed px-8 h-[42px] font-label-sm text-label-sm font-bold uppercase tracking-widest active:scale-95 transition-transform hover:brightness-110">
+                    Start Search
+                </button>
+</div>
+</section>
+<!-- Results Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-20">
+<!-- Card 1: Modern Edge Studio -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="sensors">sensors</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Modern Edge Studio</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star_half">star_half</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">4.8 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">1,240</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">98.4%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">12ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+<!-- Card 2: Quantum Cafe -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Quantum Cafe</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">5.0 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">482</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">99.1%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">8ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+<!-- Card 3: Apex Solutions -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Apex Solutions</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star_outline">star_outline</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">4.1 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">3,105</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">94.2%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">24ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+<!-- Card 4: Void Logistics -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="data_array">data_array</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Void Logistics</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star_half">star_half</span>
+<span class="material-symbols-outlined" data-icon="star_outline">star_outline</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">3.5 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">92</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">88.7%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">5ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+<!-- Card 5: Synth Core -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="memory">memory</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Synth Core</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star_outline">star_outline</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">4.2 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">2,415</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">96.8%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">15ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+<!-- Card 6: Neural Flow -->
+<div class="border border-outline-variant p-6 hover:border-primary-container transition-all group relative bg-surface-container-low">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-1 uppercase tracking-tight">Neural Flow</h3>
+<div class="flex items-center gap-2 mb-6">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-mono-code text-label-sm text-on-surface-variant">4.9 RATIO</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Potential Leads</span>
+<span class="font-mono-code text-label-sm text-primary">755</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rake Precision</span>
+<span class="font-mono-code text-label-sm text-primary">99.7%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Network Latency</span>
+<span class="font-mono-code text-label-sm text-primary">2ms</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline text-on-surface font-label-sm text-label-sm py-3 uppercase tracking-tighter hover:bg-on-surface hover:text-background transition-colors active:scale-95">View Assets</button>
+<button class="flex-1 bg-primary-container text-on-primary-fixed font-label-sm text-label-sm py-3 uppercase tracking-tighter font-bold hover:brightness-110 transition-all active:scale-95">Generate Website</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-outline-variant mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin py-6 w-full max-w-container-max mx-auto">
+<span class="font-mono-code text-label-sm text-on-surface-variant uppercase">© 2024 Rake AI. System: Nominal.</span>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">API</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for search button
+        document.querySelector('button.bg-primary-container').addEventListener('click', function() {
+            this.textContent = 'Searching...';
+            this.classList.add('animate-pulse');
+            setTimeout(() => {
+                this.textContent = 'Start Search';
+                this.classList.remove('animate-pulse');
+            }, 2000);
+        });
+
+        // Dynamic active state for input fields
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('digital-chrome-border-active');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('digital-chrome-border-active');
+            });
+        });
+    </script>
+</body></html>

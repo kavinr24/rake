@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Rake AI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#d0bcff",
+            "on-tertiary-container": "#725e00",
+            "primary-fixed": "#74f5ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed": "#221b00",
+            "on-primary": "#00363a",
+            "surface-container-highest": "#353534",
+            "tertiary-fixed-dim": "#e8c423",
+            "background": "#131313",
+            "inverse-surface": "#e5e2e1",
+            "on-error": "#690005",
+            "surface-bright": "#3a3939",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#fed83a",
+            "surface-container-lowest": "#0e0e0e",
+            "on-tertiary": "#3b2f00",
+            "on-primary-fixed-variant": "#004f54",
+            "error-container": "#93000a",
+            "on-surface": "#e5e2e1",
+            "on-primary-container": "#006a71",
+            "on-background": "#e5e2e1",
+            "on-tertiary-fixed-variant": "#554500",
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-fixed-dim": "#00dbe7",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#313030",
+            "on-primary-fixed": "#002022",
+            "surface-variant": "#353534",
+            "tertiary": "#fff6e4",
+            "primary": "#e1fdff",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#23005c",
+            "surface": "#131313",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#00696f",
+            "outline": "#849495",
+            "secondary-fixed": "#e9ddff",
+            "surface-container": "#201f1f",
+            "tertiary-fixed": "#ffe173",
+            "surface-dim": "#131313",
+            "on-surface-variant": "#b9cacb",
+            "outline-variant": "#3a494b",
+            "surface-tint": "#00dbe7",
+            "primary-container": "#00f2ff",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-low": "#1c1b1b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0px",
+            "lg": "0px",
+            "xl": "0px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "container-max": "1440px",
+            "unit": "4px",
+            "margin": "24px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "display-lg": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "mono-code": ["Geist"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "label-sm": ["Geist"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "mono-code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header / TopNavBar -->
+  <header class="bg-background border-b border-outline-variant w-full sticky top-0 z-50">
+    <div class="flex justify-between items-center px-margin py-4 w-full max-w-container-max mx-auto">
+      <div class="flex items-center gap-8">
+        <img src="/rake_logo.png" alt="Rake" class="h-20 w-auto" />
+        <span class="font-display-lg text-headline-lg font-bold text-primary tracking-tighter">Rake</span>
+        <nav class="hidden md:flex items-center gap-6">
+          <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-all active:scale-95" href="#">Dashboard</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <span id="status-indicator" class="flex items-center gap-2 font-mono-code text-label-sm text-on-surface-variant">
+          <span class="w-2 h-2 rounded-full bg-outline-variant" id="status-dot"></span>
+          <span id="status-text">Idle</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-margin pt-8">
+
+    <!-- Hero / Description -->
+    <section class="w-full mb-10">
+      <h1 class="font-display-lg text-display-lg text-primary tracking-tighter mb-3">Rake Engine</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Discover local businesses without websites. Rake scans Google Maps, validates each result, and generates a complete, modern website + a pitch for every business that needs one.
+      </p>
+    </section>
+
+    <!-- Search Configuration Toolbar -->
+    <section class="w-full mb-10">
+      <form id="run-form" class="border border-outline-variant p-4 flex flex-wrap lg:flex-nowrap items-end gap-4 bg-surface-container-lowest">
+        <!-- Location -->
+        <div class="flex-1 min-w-[200px]">
+          <label for="input-location" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Location</label>
+          <input id="input-location" name="location" type="text" value="Sunnyvale" required
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors"
+            placeholder="San Francisco, CA" />
+        </div>
+        <!-- Keyword -->
+        <div class="flex-1 min-w-[200px]">
+          <label for="input-keyword" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Keywords</label>
+          <input id="input-keyword" name="keyword" type="text"
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors"
+            placeholder="coffee, design, tech" />
+        </div>
+        <!-- Place Type -->
+        <div class="w-44">
+          <label for="input-placeType" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Place Type</label>
+          <input id="input-placeType" name="placeType" type="text" value="shop"
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors"
+            placeholder="restaurant, cafe" />
+        </div>
+        <!-- Radius (miles) -->
+        <div class="w-28">
+          <label for="input-rangeMiles" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Radius</label>
+          <input id="input-rangeMiles" name="rangeMiles" type="number" min="0.1" step="0.1" value="5"
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors text-center" />
+        </div>
+        <!-- Max Results -->
+        <div class="w-28">
+          <label for="input-maxResults" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Results</label>
+          <input id="input-maxResults" name="maxResults" type="number" min="1" step="1" value="20"
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors text-center" />
+        </div>
+        <!-- Output Dir -->
+        <div class="w-32 hidden lg:block" id="outputdir-wrapper">
+          <label for="input-outputDir" class="font-label-sm text-label-sm text-on-surface-variant mb-2 block uppercase tracking-widest">Output</label>
+          <input id="input-outputDir" name="outputDir" type="text"
+            class="w-full bg-transparent border-b border-outline-variant py-2 focus:border-primary-container focus:ring-0 outline-none font-body-md text-body-md text-primary transition-colors text-center"
+            placeholder="output" />
+        </div>
+        <!-- Submit -->
+        <button type="submit" id="submit-btn"
+          class="bg-primary-container text-on-primary-fixed px-8 h-[42px] font-label-sm text-label-sm font-bold uppercase tracking-widest active:scale-95 transition-transform hover:brightness-110 whitespace-nowrap">
+          Start Search
+        </button>
+      </form>
+    </section>
+
+    <!-- Status bar -->
+    <section id="status-bar" class="hidden w-full mb-6">
+      <div class="flex flex-wrap items-center gap-4 px-4 py-3 border border-outline-variant bg-surface-container-lowest">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Status</span>
+        <span id="status-message" class="font-mono-code text-label-sm text-primary"></span>
+        <div id="progress-bar" class="hidden flex-1 h-1 bg-outline-variant">
+          <div class="h-full bg-primary-container animate-pulse" style="width: 100%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Grid -->
+    <section id="results-section" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-20">
+      <!-- Cards rendered dynamically by app.js -->
+    </section>
+
+    <!-- Empty State -->
+    <section id="empty-state" class="flex flex-col items-center justify-center py-24 text-center">
+      <span class="material-symbols-outlined text-6xl text-outline-variant mb-6" style="font-size: 64px;">travel_explore</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Ready to scan</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+        Enter a location and keywords above, then press <span class="text-primary font-bold">Start Search</span> to discover businesses without websites.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Preview Modal -->
+  <div id="preview-overlay" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);">
+    <div id="preview-card" class="bg-surface-container-high border border-outline-variant w-full max-w-5xl h-[90vh] flex flex-col relative" style="box-shadow: 0 0 60px rgba(0,242,255,0.1);">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary" style="font-size: 22px;">visibility</span>
+          <span id="preview-business-name" class="font-headline-lg text-headline-lg-mobile text-primary uppercase tracking-tight"></span>
+        </div>
+        <button id="preview-close" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="Close preview">
+          <span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+        </button>
+      </div>
+      <div id="preview-loading" class="flex-1 flex items-center justify-center">
+        <div class="flex flex-col items-center gap-4">
+          <span class="material-symbols-outlined text-primary animate-pulse" style="font-size: 48px;">hourglass_top</span>
+          <span class="font-mono-code text-label-sm text-on-surface-variant uppercase tracking-widest">Loading preview...</span>
+        </div>
+      </div>
+      <iframe id="preview-iframe" class="hidden flex-1 w-full border-0" sandbox="allow-scripts" title="Website preview"></iframe>
+    </div>
+  </div>
+
+  <!-- Pitch Modal -->
+  <div id="pitch-overlay" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6" style="background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);">
+    <div id="pitch-card" class="bg-surface-container-high border border-outline-variant p-8 max-w-lg w-full relative" style="box-shadow: 0 0 40px rgba(0,242,255,0.08);">
+      <button id="pitch-close" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors" aria-label="Close pitch">
+        <span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+      </button>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-primary" style="font-size: 28px;">campaign</span>
+        <h2 id="pitch-business-name" class="font-headline-lg text-headline-lg-mobile text-primary uppercase tracking-tight"></h2>
+      </div>
+      <p id="pitch-text" class="font-body-md text-body-md text-on-surface leading-relaxed"></p>
+      <div class="mt-6 pt-4 border-t border-outline-variant">
+        <button id="pitch-copy" class="flex items-center gap-2 border border-primary-container text-primary font-label-sm text-label-sm py-2 px-4 uppercase tracking-widest hover:bg-primary-container hover:text-on-primary-fixed transition-colors active:scale-95">
+          <span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+          Copy Pitch
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-background border-t border-outline-variant mt-20">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin py-6 w-full max-w-container-max mx-auto">
+      <span class="font-mono-code text-label-sm text-on-surface-variant uppercase" id="footer-copyright">© 2026 Rake AI</span>
+
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

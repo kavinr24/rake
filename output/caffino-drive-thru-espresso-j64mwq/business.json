@@ -1,0 +1,18 @@
+{
+  "name": "Caffino Drive-Thru Espresso.",
+  "address": "2790 Homestead Rd, Santa Clara, CA 95051, USA",
+  "phone": "+1 408-243-9973",
+  "placeId": "ChIJL8rsGWTKj4ARjk8HOJ64mWQ",
+  "types": [
+    "cafe",
+    "establishment",
+    "food",
+    "point_of_interest",
+    "restaurant",
+    "store"
+  ],
+  "location": {
+    "lat": 37.3382369,
+    "lng": -121.9763999
+  }
+}

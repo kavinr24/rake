@@ -1,0 +1,126 @@
+/* ── Material Symbols ─────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  font-size: 20px;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a494b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2ff;
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Chrome border utilities ──────────────────────────────────── */
+.digital-chrome-border {
+  border: 1px solid #3a494b;
+}
+
+.digital-chrome-border-active {
+  outline: 1px solid #00f2ff;
+  outline-offset: 2px;
+}
+
+/* ── Focus ring override ──────────────────────────────────────── */
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+/* ── Pulse animation for loading status ───────────────────────── */
+@keyframes pulse-border {
+  0%, 100% { border-color: #3a494b; }
+  50% { border-color: #00f2ff; }
+}
+
+.status-pulsing {
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+/* ── Fade-in card entrance ────────────────────────────────────── */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#results-section > div {
+  animation: card-enter 0.4s ease-out both;
+}
+
+#results-section > div:nth-child(1) { animation-delay: 0.05s; }
+#results-section > div:nth-child(2) { animation-delay: 0.10s; }
+#results-section > div:nth-child(3) { animation-delay: 0.15s; }
+#results-section > div:nth-child(4) { animation-delay: 0.20s; }
+#results-section > div:nth-child(5) { animation-delay: 0.25s; }
+#results-section > div:nth-child(6) { animation-delay: 0.30s; }
+#results-section > div:nth-child(7) { animation-delay: 0.35s; }
+#results-section > div:nth-child(8) { animation-delay: 0.40s; }
+#results-section > div:nth-child(9) { animation-delay: 0.45s; }
+#results-section > div:nth-child(n+10) { animation-delay: 0.50s; }
+
+/* ── Preview modal animation ──────────────────────────────────── */
+@keyframes preview-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#preview-card {
+  animation: preview-enter 0.2s ease-out;
+}
+
+/* ── Pitch modal animation ────────────────────────────────────── */
+@keyframes pitch-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#pitch-card {
+  animation: pitch-enter 0.2s ease-out;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

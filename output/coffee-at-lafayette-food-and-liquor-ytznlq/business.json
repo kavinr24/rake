@@ -1,0 +1,17 @@
+{
+  "name": "Coffee at Lafayette food and liquor",
+  "address": "1670 Lafayette St, Santa Clara, CA 95050, USA",
+  "phone": "+1 510-309-7474",
+  "placeId": "ChIJR8BjQQDLj4AR-U84WyTZnlQ",
+  "types": [
+    "cafe",
+    "establishment",
+    "food",
+    "point_of_interest",
+    "store"
+  ],
+  "location": {
+    "lat": 37.3564517,
+    "lng": -121.9469823
+  }
+}

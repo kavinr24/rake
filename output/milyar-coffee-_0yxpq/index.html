@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milyar Coffee | Premium Coffee Experience</title>
+    <meta name="description" content="Milyar Coffee - Artisan coffee shop in Santa Clara. Premium roasted beans, artisanal drinks, and a warm atmosphere.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">Milyar Coffee</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#contact" class="nav-link">Visit Us</a></li>
+                </ul>
+            </nav>
+            <label for="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+            <div class="mobile-menu">
+                <nav class="mobile-nav">
+                    <a href="#about" class="mobile-nav-link">About</a>
+                    <a href="#menu" class="mobile-nav-link">Menu</a>
+                    <a href="#contact" class="mobile-nav-link">Visit Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 class="hero-title">Milyar Coffee</h1>
+                <p class="hero-subtitle">Artisan Crafted. Perfectly Brewed.</p>
+                <p class="hero-tagline">Where every cup tells a story</p>
+            </div>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
+        </section>
+
+        <img src="images/divider-bottom.png" alt="" class="divider" aria-hidden="true">
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="section-title">Our Story</h2>
+                        <p class="about-text">Welcome to Milyar Coffee, where passion meets precision. Founded in the heart of Santa Clara, we believe that exceptional coffee is more than a beverage — it's an experience, a moment of connection, a daily ritual that elevates the ordinary into the extraordinary.</p>
+                        <p class="about-text">Our master roasters source the finest beans from sustainable farms around the world, carefully roasting each batch to unlock its unique character. Every cup we serve is crafted with intention, brewed with care, and served with warmth.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Years of Excellence</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">50K+</span>
+                                <span class="stat-label">Happy Customers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Coffee Varieties</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="pattern-bg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="services">
+            <div class="container">
+                <h2 class="section-title center">Our Menu</h2>
+                <p class="section-subtitle center">Discover our carefully curated selection of coffee and treats</p>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Signature Espresso</h3>
+                        <p class="card-description">Rich, bold espresso blends crafted from our signature roast. Perfectly balanced with notes of chocolate and caramel.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 8h1a4 4 0 110 8h-1M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zM5 19h2v-5H5v5zM17 19h2v-5h-2v5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Artisan Lattes</h3>
+                        <p class="card-description">Creamy steamed milk meets our premium espresso. Try our lavender, vanilla, or classic caramel latte.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 19h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2zM8 7v5M12 7v5M16 7v5"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Cold Brew</h3>
+                        <p class="card-description">Smooth, slow-steeped cold brew aged for 24 hours. Exceptionally smooth with subtle chocolate undertones.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 0110 10v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2a10 10 0 0110-10zM8 17v3M12 17v3M16 17v3"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Specialty Pastries</h3>
+                        <p class="card-description">Freshly baked croissants, muffins, and pastries from local artisan bakeries. Perfect pairing with your favorite brew.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6 6 6 0 016-6zM12 14c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Tea Selection</h3>
+                        <p class="card-description">Premium loose-leaf teas including Earl Grey, chai, matcha, and herbal blends. Served hot or iced.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M8 2v4M16 2v4M3 10h18M5 4h2a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Grab & Go</h3>
+                        <p class="card-description">Quick breakfast boxes, sandwiches, and snacks for busy mornings. Ready when you are.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <img src="images/divider-top.png" alt="" class="divider" aria-hidden="true">
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <h2 class="section-title">Visit Us</h2>
+                    <p class="contact-intro">We'd love to welcome you into our space. Stop by for a cup and stay awhile.</p>
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <h3 class="contact-label">Location</h3>
+                            <address class="contact-detail">
+                                1098 Monroe St<br>
+                                Santa Clara, CA 95050<br>
+                                USA
+                            </address>
+                        </div>
+                        <div class="contact-info">
+                            <h3 class="contact-label">Hours</h3>
+                            <p class="contact-detail">
+                                Mon - Fri: 6:00 AM - 8:00 PM<br>
+                                Sat - Sun: 7:00 AM - 9:00 PM
+                            </p>
+                        </div>
+                        <div class="contact-info">
+                            <h3 class="contact-label">Contact</h3>
+                            <p class="contact-detail">
+                                <a href="tel:+14084429526" class="contact-link">+1 408-442-9526</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">Milyar Coffee</a>
+                    <p class="footer-tagline">Artisan Crafted. Perfectly Brewed.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav class="footer-nav">
+                        <a href="#about" class="footer-link">About</a>
+                        <a href="#menu" class="footer-link">Menu</a>
+                        <a href="#contact" class="footer-link">Visit Us</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="18" cy="6" r="1"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Milyar Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

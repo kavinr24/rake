@@ -1,0 +1,17 @@
+{
+  "name": "Café LaTTea",
+  "address": "19501 Stevens Creek Blvd STE 101, Cupertino, CA 95014, USA",
+  "phone": "+1 408-255-2393",
+  "placeId": "ChIJ8VTpSJ61j4ARW3dmwvPSig0",
+  "types": [
+    "cafe",
+    "establishment",
+    "food",
+    "point_of_interest",
+    "restaurant"
+  ],
+  "location": {
+    "lat": 37.3231977,
+    "lng": -122.0123423
+  }
+}
